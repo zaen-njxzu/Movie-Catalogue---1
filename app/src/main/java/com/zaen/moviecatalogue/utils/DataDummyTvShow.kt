@@ -78,7 +78,7 @@ object DataDummyTvShow {
         return tvShows
     }
 
-    private fun getTvShowsDetail() : ArrayList<MovieDetail> {
+    fun getTvShowsDetail() : ArrayList<MovieDetail> {
         val tvShowsDetail = ArrayList<MovieDetail>()
 
         tvShowsDetail.add(

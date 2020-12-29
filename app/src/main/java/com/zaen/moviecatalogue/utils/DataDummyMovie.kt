@@ -72,7 +72,7 @@ object DataDummyMovie {
         return movies
     }
 
-    private fun getMoviesDetail() : ArrayList<MovieDetail> {
+    fun getMoviesDetail() : ArrayList<MovieDetail> {
         val moviesDetail = ArrayList<MovieDetail>()
 
         moviesDetail.add(MovieDetail(
