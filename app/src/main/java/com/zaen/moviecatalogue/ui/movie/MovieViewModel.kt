@@ -6,6 +6,6 @@ import com.zaen.moviecatalogue.utils.DataDummyMovie
 
 class MovieViewModel: ViewModel() {
 
-    fun getMovies(): List<Movie> = DataDummyMovie.generateDummyMovies()
+    fun getMovies(): List<Movie> = DataDummyMovie.getMovies()
 
 }

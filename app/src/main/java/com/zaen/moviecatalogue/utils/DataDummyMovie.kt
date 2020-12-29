@@ -2,12 +2,11 @@ package com.zaen.moviecatalogue.utils
 
 import com.zaen.moviecatalogue.models.Movie
 import com.zaen.moviecatalogue.models.MovieDetail
+import com.zaen.moviecatalogue.utils.Constants.BASE_IMAGE_URL
 
 object DataDummyMovie {
 
-    val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
-
-    fun generateDummyMovies() : ArrayList<Movie> {
+    fun getMovies() : ArrayList<Movie> {
         val movies = ArrayList<Movie>()
 
         movies.add(Movie(
@@ -73,7 +72,7 @@ object DataDummyMovie {
         return movies
     }
 
-    fun generateDummyMoviesDetail() : ArrayList<MovieDetail> {
+    private fun getMoviesDetail() : ArrayList<MovieDetail> {
         val moviesDetail = ArrayList<MovieDetail>()
 
         moviesDetail.add(MovieDetail(
@@ -169,8 +168,8 @@ object DataDummyMovie {
         return moviesDetail
     }
 
-    fun getDummyDetailById(id: Int) : MovieDetail? {
-        val moviesDetail = generateDummyMoviesDetail()
+    fun getMovieDetails(id: Int) : MovieDetail? {
+        val moviesDetail = getMoviesDetail()
         return moviesDetail.find { movieDetail -> movieDetail.id == id }
     }
 
