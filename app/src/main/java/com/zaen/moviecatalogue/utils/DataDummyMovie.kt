@@ -1,7 +1,6 @@
 package com.zaen.moviecatalogue.utils
 
 import com.zaen.moviecatalogue.models.Movie
-import com.zaen.moviecatalogue.models.MovieDetail
 
 object DataDummyMovie {
 
@@ -11,79 +10,13 @@ object DataDummyMovie {
         movies.add(Movie(
             529203,
             "The Croods: A New Age",
-            "/tK1zy5BsCt1J4OzoDicXmr0UTFH.jpg"
-        ))
-
-        movies.add(Movie(
-            553604,
-            "Honest Thief",
-            "/zeD4PabP6099gpE0STWJrJrCBCs.jpg"
-        ))
-
-        movies.add(Movie(
-            464052,
-            "Wonder Woman 1984",
-            "/lNVHB85FUDZqLzvug3k6FA07RIr.jpg"
-        ))
-
-        movies.add(Movie(
-            577922,
-            "Tenet",
-            "/k68nPLbIST6NP96JmTxmZijEvCA.jpg"
-        ))
-
-        movies.add(Movie(
-            508442,
-            "Soul",
-            "/zSuRX1VmT0PwuHVV7zl4n1mwdL0.jpg"
-        ))
-
-        movies.add(Movie(
-            524047,
-            "Greenland",
-            "/bNo2mcvSwIvnx8K6y1euAc1TLVq.jpg"
-        ))
-
-        movies.add(Movie(
-            646593,
-            "Wander",
-            "/2AwPvNHphpZBJDqjZKVuMAbvS0v.jpg"
-        ))
-
-        movies.add(Movie(
-            590706,
-            "Jiu Jitsu",
-            "/eLT8Cu357VOwBVTitkmlDEg32Fs.jpg"
-        ))
-
-        movies.add(Movie(
-            602211,
-            "Fatman",
-            "/4n8QNNdk4BOX9Dslfbz5Dy6j1HK.jpg"
-        ))
-
-        movies.add(Movie(
-            614911,
-            "The Midnight Sky",
-            "/51JxCk77ZCqLzbLkrDl9Qho6KUh.jpg"
-        ))
-
-        return movies
-    }
-
-    fun getMoviesDetail() : ArrayList<MovieDetail> {
-        val moviesDetail = ArrayList<MovieDetail>()
-
-        moviesDetail.add(MovieDetail(
-            529203,
-            "The Croods: A New Age",
             "/tK1zy5BsCt1J4OzoDicXmr0UTFH.jpg",
             7.9,
             "After leaving their cave, the Croods encounter their biggest threat since leaving: another family called the Bettermans, who claim and show to be better and evolved. Grug grows suspicious of the Betterman parents, Phil and Hope, as they secretly plan to break up his daughter Eep with her loving boyfriend Guy to ensure that their daughter Dawn has a loving and smart partner to protect her. Searching for a safer habitat, the prehistoric Crood family discovers an idyllic, walled-in paradise that meets all of its needs. Unfortunately, they must also learn to live with the Bettermans -- a family that's a couple of steps above the Croods on the evolutionary ladder. As tensions between the new neighbors start to rise, a new threat soon propels both clans on an epic adventure that forces them to embrace their differences, draw strength from one another, and survive together.",
             "2020-11-25"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             553604,
             "Honest Thief",
             "/zeD4PabP6099gpE0STWJrJrCBCs.jpg",
@@ -92,7 +25,7 @@ object DataDummyMovie {
             "2020-09-03"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             464052,
             "Wonder Woman 1984",
             "/lNVHB85FUDZqLzvug3k6FA07RIr.jpg",
@@ -101,7 +34,7 @@ object DataDummyMovie {
             "2020-12-16"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             577922,
             "Tenet",
             "/k68nPLbIST6NP96JmTxmZijEvCA.jpg",
@@ -110,7 +43,7 @@ object DataDummyMovie {
             "2020-08-22"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             508442,
             "Soul",
             "/zSuRX1VmT0PwuHVV7zl4n1mwdL0.jpg",
@@ -119,7 +52,7 @@ object DataDummyMovie {
             "2020-12-25"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             524047,
             "Greenland",
             "/bNo2mcvSwIvnx8K6y1euAc1TLVq.jpg",
@@ -128,7 +61,7 @@ object DataDummyMovie {
             "2020-07-29"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             646593,
             "Wander",
             "/2AwPvNHphpZBJDqjZKVuMAbvS0v.jpg",
@@ -137,7 +70,7 @@ object DataDummyMovie {
             "2020-12-04"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             590706,
             "Jiu Jitsu",
             "/eLT8Cu357VOwBVTitkmlDEg32Fs.jpg",
@@ -146,7 +79,7 @@ object DataDummyMovie {
             "2020-11-20"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             602211,
             "Fatman",
             "/4n8QNNdk4BOX9Dslfbz5Dy6j1HK.jpg",
@@ -155,7 +88,7 @@ object DataDummyMovie {
             "2020-11-13"
         ))
 
-        moviesDetail.add(MovieDetail(
+        movies.add(Movie(
             614911,
             "The Midnight Sky",
             "/51JxCk77ZCqLzbLkrDl9Qho6KUh.jpg",
@@ -164,12 +97,12 @@ object DataDummyMovie {
             "2020-12-10"
         ))
 
-        return moviesDetail
+        return movies
     }
 
-    fun getMovieDetails(id: Int) : MovieDetail? {
-        val moviesDetail = getMoviesDetail()
-        return moviesDetail.find { movieDetail -> movieDetail.id == id }
+    fun getMovieDetail(id: Int) : Movie? {
+        val movies = getMovies()
+        return movies.find { movie -> movie?.id == id }
     }
 
 }

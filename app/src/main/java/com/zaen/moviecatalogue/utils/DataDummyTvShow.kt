@@ -1,90 +1,23 @@
 package com.zaen.moviecatalogue.utils
 
 import com.zaen.moviecatalogue.models.Movie
-import com.zaen.moviecatalogue.models.MovieDetail
 
 object DataDummyTvShow {
 
     fun getTvShows(): ArrayList<Movie> {
         val tvShows = ArrayList<Movie>()
 
-        tvShows.add(Movie(
-            100,
-            "I Am Not an Animal",
-            "/qG59J1Q7rpBc1dvku4azbzcqo8h.jpg"
-        ))
+        tvShows.add(
+            Movie(
+                100,
+                "I Am Not an Animal",
+                "/qG59J1Q7rpBc1dvku4azbzcqo8h.jpg",
+                9.4,
+                "I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.",
+                "2004-05-10"
+            ))
 
         tvShows.add(Movie(
-            88040,
-            "Given",
-            "/pdDCcAq8RNSZNk81PXYoHNUPHjn.jpg"
-        ))
-
-        tvShows.add(Movie(
-            83097,
-            "The Promised Neverland",
-            "/yxdeII5tI8qqiERcMxjW9DfB6Gz.jpg"
-        ))
-
-        tvShows.add(Movie(
-            83095,
-            "The Rising of the Shield Hero",
-            "/ftavpq2PJn5pyo5opJEmj8QleKD.jpg"
-        ))
-
-        tvShows.add(Movie(
-            96316,
-            "Rent-a-Girlfriend",
-            "/4rqyyM0R3a0EeSlEvdpxDKbjiKB.jpg"
-        ))
-
-        tvShows.add(Movie(
-            72636,
-            "Made In Abyss",
-            "/uVK3H8CgtrVgySFpdImvNXkN7RK.jpg"
-        ))
-
-        tvShows.add(Movie(
-            80564,
-            "Banana Fish",
-            "/1UV5di9UIXwrpCW3xQ4RNli5hEV.jpg"
-        ))
-
-        tvShows.add(Movie(
-            93019,
-            "ORESUKI: Are you the only one who loves me?",
-            "/4MojZik5N62IShd2BFVEHyaRBLP.jpg"
-        ))
-
-        tvShows.add(Movie(
-            65930,
-            "My Hero Academia",
-            "/he1aoyFEPYAMsjGOVGfObbEIzid.jpg"
-        ))
-
-        tvShows.add(Movie(
-            67389,
-            "Golden Time",
-            "/qp4eHCZMR14dtubvzr67PZqH5fa.jpg"
-        ))
-
-        return tvShows
-    }
-
-    fun getTvShowsDetail() : ArrayList<MovieDetail> {
-        val tvShowsDetail = ArrayList<MovieDetail>()
-
-        tvShowsDetail.add(
-            MovieDetail(
-            100,
-            "I Am Not an Animal",
-            "/qG59J1Q7rpBc1dvku4azbzcqo8h.jpg",
-            9.4,
-            "I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.",
-            "2004-05-10"
-        ))
-
-        tvShowsDetail.add(MovieDetail(
             88040,
             "Given",
             "/pdDCcAq8RNSZNk81PXYoHNUPHjn.jpg",
@@ -93,7 +26,7 @@ object DataDummyTvShow {
             "2019-07-11"
         ))
 
-        tvShowsDetail.add(MovieDetail(
+        tvShows.add(Movie(
             83097,
             "The Promised Neverland",
             "/yxdeII5tI8qqiERcMxjW9DfB6Gz.jpg",
@@ -102,7 +35,7 @@ object DataDummyTvShow {
             "2019-01-09"
         ))
 
-        tvShowsDetail.add(MovieDetail(
+        tvShows.add(Movie(
             83095,
             "The Rising of the Shield Hero",
             "/ftavpq2PJn5pyo5opJEmj8QleKD.jpg",
@@ -111,7 +44,7 @@ object DataDummyTvShow {
             "2019-01-09"
         ))
 
-        tvShowsDetail.add(MovieDetail(
+        tvShows.add(Movie(
             96316,
             "Rent-a-Girlfriend",
             "/4rqyyM0R3a0EeSlEvdpxDKbjiKB.jpg",
@@ -120,7 +53,7 @@ object DataDummyTvShow {
             "2020-07-11"
         ))
 
-        tvShowsDetail.add(MovieDetail(
+        tvShows.add(Movie(
             72636,
             "Made In Abyss",
             "/uVK3H8CgtrVgySFpdImvNXkN7RK.jpg",
@@ -129,7 +62,7 @@ object DataDummyTvShow {
             "2017-07-07"
         ))
 
-        tvShowsDetail.add(MovieDetail(
+        tvShows.add(Movie(
             80564,
             "Banana Fish",
             "/1UV5di9UIXwrpCW3xQ4RNli5hEV.jpg",
@@ -138,7 +71,7 @@ object DataDummyTvShow {
             "2018-07-06"
         ))
 
-        tvShowsDetail.add(MovieDetail(
+        tvShows.add(Movie(
             93019,
             "ORESUKI: Are you the only one who loves me?",
             "/4MojZik5N62IShd2BFVEHyaRBLP.jpg",
@@ -147,7 +80,7 @@ object DataDummyTvShow {
             "2019-10-03"
         ))
 
-        tvShowsDetail.add(MovieDetail(
+        tvShows.add(Movie(
             65930,
             "My Hero Academia",
             "/he1aoyFEPYAMsjGOVGfObbEIzid.jpg",
@@ -156,7 +89,7 @@ object DataDummyTvShow {
             "2016-04-03"
         ))
 
-        tvShowsDetail.add(MovieDetail(
+        tvShows.add(Movie(
             67389,
             "Golden Time",
             "/qp4eHCZMR14dtubvzr67PZqH5fa.jpg",
@@ -165,12 +98,12 @@ object DataDummyTvShow {
             "2013-10-04"
         ))
 
-        return tvShowsDetail
+        return tvShows
     }
 
-    fun getTvShowDetails(id: Int) : MovieDetail? {
-        val tvShowsDetail = getTvShowsDetail()
-        return tvShowsDetail.find { movieDetail -> movieDetail.id == id }
+    fun getTvShowDetail(id: Int) : Movie? {
+        val tvShows = getTvShows()
+        return tvShows.find { tvShow -> tvShow.id == id }
     }
 
 }

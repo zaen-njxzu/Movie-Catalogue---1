@@ -10,8 +10,8 @@ import org.junit.Test
 class DetailMovieViewModelTest {
 
     private lateinit var viewModel: DetailMovieViewModel
-    private val dummyDetailMovie = DataDummyMovie.getMoviesDetail()[0]
-    private val dummyDetailTvShow = DataDummyTvShow.getTvShowsDetail()[0]
+    private val dummyDetailMovie = DataDummyMovie.getMovies()[0]
+    private val dummyDetailTvShow = DataDummyTvShow.getTvShows()[0]
     private val movieId = dummyDetailMovie.id
     private val tvShowId = dummyDetailTvShow.id
 

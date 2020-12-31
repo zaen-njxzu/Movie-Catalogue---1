@@ -17,9 +17,7 @@ import org.junit.Test
 class HomeActivityTest {
 
     private val dummyMovies = DataDummyMovie.getMovies()
-    private val dummyDetailMovies = DataDummyMovie.getMoviesDetail()
     private val dummyTvShows = DataDummyTvShow.getTvShows()
-    private val dummyDetailTvShows = DataDummyTvShow.getTvShowsDetail()
 
     @get:Rule
     var activityRule = ActivityScenarioRule(HomeActivity::class.java)
@@ -34,13 +32,13 @@ class HomeActivityTest {
     fun loadDetailMovie() {
         onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_title)).check(matches(withText(dummyDetailMovies[0].title)))
+        onView(withId(R.id.tv_title)).check(matches(withText(dummyMovies[0].title)))
         onView(withId(R.id.tv_release_at)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_release_at)).check(matches(withText(dummyDetailMovies[0].releaseDate)))
+        onView(withId(R.id.tv_release_at)).check(matches(withText(dummyMovies[0].releaseDate)))
         onView(withId(R.id.tv_rating)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_rating)).check(matches(withText(dummyDetailMovies[0].rating.toString())))
+        onView(withId(R.id.tv_rating)).check(matches(withText(dummyMovies[0].rating.toString())))
         onView(withId(R.id.tv_synopsis)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_synopsis)).check(matches(withText(dummyDetailMovies[0].overview)))
+        onView(withId(R.id.tv_synopsis)).check(matches(withText(dummyMovies[0].overview)))
     }
 
     @Test
@@ -55,13 +53,13 @@ class HomeActivityTest {
         onView(withText(R.string.tvshow)).perform(click())
         onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_title)).check(matches(withText(dummyDetailTvShows[0].title)))
+        onView(withId(R.id.tv_title)).check(matches(withText(dummyTvShows[0].title)))
         onView(withId(R.id.tv_release_at)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_release_at)).check(matches(withText(dummyDetailTvShows[0].releaseDate)))
+        onView(withId(R.id.tv_release_at)).check(matches(withText(dummyTvShows[0].releaseDate)))
         onView(withId(R.id.tv_rating)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_rating)).check(matches(withText(dummyDetailTvShows[0].rating.toString())))
+        onView(withId(R.id.tv_rating)).check(matches(withText(dummyTvShows[0].rating.toString())))
         onView(withId(R.id.tv_synopsis)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_synopsis)).check(matches(withText(dummyDetailTvShows[0].overview)))
+        onView(withId(R.id.tv_synopsis)).check(matches(withText(dummyTvShows[0].overview)))
     }
 
     @Test
