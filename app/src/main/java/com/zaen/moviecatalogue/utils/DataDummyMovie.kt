@@ -1,17 +1,18 @@
 package com.zaen.moviecatalogue.utils
 
 import com.zaen.moviecatalogue.models.Movie
+import com.zaen.moviecatalogue.models.MoviesResponse
 
 object DataDummyMovie {
 
-    fun getMovies() : ArrayList<Movie> {
-        val movies = ArrayList<Movie>()
+    fun getMovies() : MoviesResponse {
+        val movies = MoviesResponse()
 
         movies.add(Movie(
             529203,
             "The Croods: A New Age",
             "/tK1zy5BsCt1J4OzoDicXmr0UTFH.jpg",
-            7.9,
+            7.8,
             "After leaving their cave, the Croods encounter their biggest threat since leaving: another family called the Bettermans, who claim and show to be better and evolved. Grug grows suspicious of the Betterman parents, Phil and Hope, as they secretly plan to break up his daughter Eep with her loving boyfriend Guy to ensure that their daughter Dawn has a loving and smart partner to protect her. Searching for a safer habitat, the prehistoric Crood family discovers an idyllic, walled-in paradise that meets all of its needs. Unfortunately, they must also learn to live with the Bettermans -- a family that's a couple of steps above the Croods on the evolutionary ladder. As tensions between the new neighbors start to rise, a new threat soon propels both clans on an epic adventure that forces them to embrace their differences, draw strength from one another, and survive together.",
             "2020-11-25"
         ))
@@ -20,7 +21,7 @@ object DataDummyMovie {
             553604,
             "Honest Thief",
             "/zeD4PabP6099gpE0STWJrJrCBCs.jpg",
-            7.0,
+            6.9,
             "A bank robber tries to turn himself in because he's falling in love and wants to live an honest life...but when he realizes the Feds are more corrupt than him, he must fight back to clear his name.",
             "2020-09-03"
         ))
@@ -29,7 +30,7 @@ object DataDummyMovie {
             464052,
             "Wonder Woman 1984",
             "/lNVHB85FUDZqLzvug3k6FA07RIr.jpg",
-            7.5,
+            7.4,
             "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah.",
             "2020-12-16"
         ))
@@ -65,7 +66,7 @@ object DataDummyMovie {
             646593,
             "Wander",
             "/2AwPvNHphpZBJDqjZKVuMAbvS0v.jpg",
-            5.6,
+            5.5,
             "After getting hired to probe a suspicious death in the small town of Wander, a mentally unstable private investigator becomes convinced the case is linked to the same 'conspiracy cover up' that caused the death of his daughter.",
             "2020-12-04"
         ))
@@ -74,7 +75,7 @@ object DataDummyMovie {
             590706,
             "Jiu Jitsu",
             "/eLT8Cu357VOwBVTitkmlDEg32Fs.jpg",
-            5.5,
+            5.4,
             "Every six years, an ancient order of jiu-jitsu fighters joins forces to battle a vicious race of alien invaders. But when a celebrated war hero goes down in defeat, the fate of the planet and mankind hangs in the balance.",
             "2020-11-20"
         ))

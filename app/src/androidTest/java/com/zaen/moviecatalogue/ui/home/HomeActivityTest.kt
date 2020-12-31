@@ -1,8 +1,9 @@
 package com.zaen.moviecatalogue.ui.home
 
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -10,8 +11,10 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import com.zaen.moviecatalogue.R
 import com.zaen.moviecatalogue.utils.DataDummyMovie
 import com.zaen.moviecatalogue.utils.DataDummyTvShow
+import com.zaen.moviecatalogue.utils.EspressoIdlingResource
 import com.zaen.moviecatalogue.utils.RecyclerViewMatcher
-import org.junit.Rule
+import org.junit.After
+import org.junit.Before
 import org.junit.Test
 
 class HomeActivityTest {
@@ -19,8 +22,16 @@ class HomeActivityTest {
     private val dummyMovies = DataDummyMovie.getMovies()
     private val dummyTvShows = DataDummyTvShow.getTvShows()
 
-    @get:Rule
-    var activityRule = ActivityScenarioRule(HomeActivity::class.java)
+    @Before
+    fun setUp() {
+        ActivityScenario.launch(HomeActivity::class.java)
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.idlingResource)
+    }
+
+    @After
+    fun tearDown() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.idlingResource)
+    }
 
     @Test
     fun loadMovies() {

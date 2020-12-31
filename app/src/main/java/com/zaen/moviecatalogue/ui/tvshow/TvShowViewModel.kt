@@ -1,11 +1,12 @@
 package com.zaen.moviecatalogue.ui.tvshow
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.zaen.moviecatalogue.models.Movie
-import com.zaen.moviecatalogue.utils.DataDummyTvShow
+import com.zaen.moviecatalogue.models.MoviesResponse
+import com.zaen.moviecatalogue.source.MovieCatalogueRepository
 
-class TvShowViewModel: ViewModel() {
+class TvShowViewModel(private val movieCatalogueRepository: MovieCatalogueRepository): ViewModel() {
 
-    fun getTvShows(): List<Movie> = DataDummyTvShow.getTvShows()
+    fun getTvShows(): LiveData<MoviesResponse> = movieCatalogueRepository.getTvShows()
 
 }

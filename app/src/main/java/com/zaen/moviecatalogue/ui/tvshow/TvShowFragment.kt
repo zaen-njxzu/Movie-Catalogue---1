@@ -2,24 +2,37 @@ package com.zaen.moviecatalogue.ui.tvshow
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.zaen.moviecatalogue.R
+import com.zaen.moviecatalogue.databinding.FragmentTvShowBinding
 import com.zaen.moviecatalogue.ui.detail.DetailMovieActivity
 import com.zaen.moviecatalogue.utils.TypeMovie
-import kotlinx.android.synthetic.main.fragment_tv_show.*
+import com.zaen.moviecatalogue.viewmodel.ViewModelFactory
 
 class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    private lateinit var fragmentTvShowBinding: FragmentTvShowBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        fragmentTvShowBinding = FragmentTvShowBinding.inflate(inflater, container, false)
+        return fragmentTvShowBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
-            val tvShows = viewModel.getTvShows()
 
             val tvShowAdapter = TvShowAdapter()
-            tvShowAdapter.differ.submitList(tvShows)
             tvShowAdapter.setOnItemClickListener {
                 context?.apply {
                     val intent = Intent(this, DetailMovieActivity::class.java)
@@ -40,8 +53,18 @@ class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
                 }
             }
 
-            rv_tv_show.setHasFixedSize(true)
-            rv_tv_show.adapter = tvShowAdapter
+            fragmentTvShowBinding.rvTvShow.setHasFixedSize(true)
+            fragmentTvShowBinding.rvTvShow.adapter = tvShowAdapter
+
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
+
+            fragmentTvShowBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getTvShows().observe(viewLifecycleOwner, Observer {
+                tvShowAdapter.differ.submitList(it)
+                fragmentTvShowBinding.progressBar.visibility = View.INVISIBLE
+            })
         }
     }
+
 }

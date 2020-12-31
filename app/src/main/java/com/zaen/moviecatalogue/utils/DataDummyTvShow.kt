@@ -1,11 +1,12 @@
 package com.zaen.moviecatalogue.utils
 
 import com.zaen.moviecatalogue.models.Movie
+import com.zaen.moviecatalogue.models.MoviesResponse
 
 object DataDummyTvShow {
 
-    fun getTvShows(): ArrayList<Movie> {
-        val tvShows = ArrayList<Movie>()
+    fun getTvShows(): MoviesResponse {
+        val tvShows = MoviesResponse()
 
         tvShows.add(
             Movie(
@@ -75,7 +76,7 @@ object DataDummyTvShow {
             93019,
             "ORESUKI: Are you the only one who loves me?",
             "/4MojZik5N62IShd2BFVEHyaRBLP.jpg",
-            8.9,
+            9.0,
             "Kisaragi Amatsuyu is invited out alone by the cool beauty upperclassman Cosmos and his childhood friend Himawari. Expecting to hear their confessions, he triumphantly goes to meet each of them in turn. But Cosmos and Himawari both instead confess to Amatsuyu that they like his friend. Amatsuyu fights this lonely battle, but there is another girl who is looking at him. She is a gloomy girl with glasses and braids. Amatsuyu finds that he hates her, because she's always turning her sharp tongue only on him and finding enjoyment in his troubles. But it turns out that she's the only one who actually does like him.",
             "2019-10-03"
         ))
