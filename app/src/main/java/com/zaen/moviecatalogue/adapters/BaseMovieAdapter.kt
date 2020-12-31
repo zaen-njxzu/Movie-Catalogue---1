@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.zaen.moviecatalogue.R
 import com.zaen.moviecatalogue.models.Movie
+import com.zaen.moviecatalogue.utils.Constants.BASE_IMAGE_URL
 import kotlinx.android.synthetic.main.items_movie.view.*
 
 abstract class BaseMovieAdapter : RecyclerView.Adapter<BaseMovieAdapter.MovieViewHolder>() {
@@ -46,7 +47,7 @@ abstract class BaseMovieAdapter : RecyclerView.Adapter<BaseMovieAdapter.MovieVie
         val movie = differ.currentList[position]
         holder.itemView.apply {
             Glide.with(this.context)
-                .load(movie.posterUrl)
+                .load(BASE_IMAGE_URL+movie.posterUrl)
                 .into(iv_poster)
             tv_item_title.text = movie.title
 
