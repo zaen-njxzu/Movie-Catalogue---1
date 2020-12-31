@@ -46,7 +46,7 @@ abstract class BaseMovieAdapter : RecyclerView.Adapter<BaseMovieAdapter.MovieVie
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this.context)
+            Glide.with(context)
                 .load(BASE_IMAGE_URL+movie.posterUrl)
                 .into(iv_poster)
             tv_item_title.text = movie.title
