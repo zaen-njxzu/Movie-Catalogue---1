@@ -1,7 +1,7 @@
 package com.zaen.moviecatalogue.utils
 
-import com.zaen.moviecatalogue.models.Movie
-import com.zaen.moviecatalogue.models.MoviesResponse
+import com.zaen.moviecatalogue.source.remote.response.Movie
+import com.zaen.moviecatalogue.source.remote.response.MoviesResponse
 
 object DataDummyMovie {
 
@@ -97,6 +97,8 @@ object DataDummyMovie {
             "A lone scientist in the Arctic races to contact a crew of astronauts returning home to a mysterious global catastrophe.",
             "2020-12-10"
         ))
+
+        movies.sortBy { movie -> movie.id }
 
         return movies
     }

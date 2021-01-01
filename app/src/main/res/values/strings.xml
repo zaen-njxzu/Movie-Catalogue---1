@@ -10,4 +10,6 @@
     <string name="detail_movie_released_at_field">Released at :</string>
     <string name="detail_movie_rating_field">Rating :</string>
     <string name="detail_movie_synopsis_field">Synopsis</string>
+    <string name="menu_favorite">favorite</string>
+    <string name="catalogue">catalogue</string>
 </resources>

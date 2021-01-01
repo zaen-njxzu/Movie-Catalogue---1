@@ -1,22 +1,21 @@
 package com.zaen.moviecatalogue.utils
 
-import com.zaen.moviecatalogue.models.Movie
-import com.zaen.moviecatalogue.models.MoviesResponse
+import com.zaen.moviecatalogue.source.remote.response.Movie
+import com.zaen.moviecatalogue.source.remote.response.MoviesResponse
 
 object DataDummyTvShow {
 
     fun getTvShows(): MoviesResponse {
         val tvShows = MoviesResponse()
 
-        tvShows.add(
-            Movie(
+        tvShows.add(Movie(
                 100,
                 "I Am Not an Animal",
                 "/qG59J1Q7rpBc1dvku4azbzcqo8h.jpg",
                 9.4,
                 "I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.",
                 "2004-05-10"
-            ))
+        ))
 
         tvShows.add(Movie(
             88040,
@@ -98,6 +97,8 @@ object DataDummyTvShow {
             "Banri Tada is a freshman at a Tokyo law school. After an accident, he suffers severe memory loss. Despite the incident, he befriends fellow freshman, Mitsuo Yanagisawa, which leads him to the beautiful, yet obsessive, Kouko Kaga.",
             "2013-10-04"
         ))
+
+        tvShows.sortBy { tvShows -> tvShows.id }
 
         return tvShows
     }

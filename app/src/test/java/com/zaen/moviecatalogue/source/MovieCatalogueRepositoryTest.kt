@@ -1,7 +1,6 @@
 package com.zaen.moviecatalogue.source
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.dicoding.academies.utils.LiveDataTestUtil
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doAnswer
 import com.nhaarman.mockitokotlin2.eq
@@ -9,6 +8,7 @@ import com.nhaarman.mockitokotlin2.verify
 import com.zaen.moviecatalogue.source.remote.RemoteDataSource
 import com.zaen.moviecatalogue.utils.DataDummyMovie
 import com.zaen.moviecatalogue.utils.DataDummyTvShow
+import com.zaen.moviecatalogue.utils.LiveDataTestUtil
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertEquals
 import org.junit.Test

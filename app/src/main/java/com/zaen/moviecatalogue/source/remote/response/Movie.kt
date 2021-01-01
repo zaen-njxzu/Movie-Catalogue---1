@@ -1,4 +1,4 @@
-package com.zaen.moviecatalogue.models
+package com.zaen.moviecatalogue.source.remote.response
 
 data class Movie(
     val id: Int,

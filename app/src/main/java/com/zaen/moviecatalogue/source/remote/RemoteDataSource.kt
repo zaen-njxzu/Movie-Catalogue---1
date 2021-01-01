@@ -1,8 +1,9 @@
 package com.zaen.moviecatalogue.source.remote
 
 import android.os.Handler
-import com.zaen.moviecatalogue.models.Movie
-import com.zaen.moviecatalogue.models.MoviesResponse
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.zaen.moviecatalogue.source.remote.response.MoviesResponse
 import com.zaen.moviecatalogue.utils.EspressoIdlingResource
 import com.zaen.moviecatalogue.utils.JsonHelper
 
@@ -21,51 +22,24 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper){
             }
     }
 
-    fun getMovies(callback: LoadMovies) {
+    fun getMovies() : LiveData<ApiResponse<MoviesResponse>> {
         EspressoIdlingResource.increment()
+        val resultMovies = MutableLiveData<ApiResponse<MoviesResponse>>()
         handler.postDelayed({
-            callback.onMoviesReceived(jsonHelper.loadMovies())
+            resultMovies.value = ApiResponse.success(jsonHelper.loadMovies())
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
+        return resultMovies
     }
 
-    fun getMovie(id: Int, callback: LoadMovieDetail) {
+    fun getTvShows(): LiveData<ApiResponse<MoviesResponse>> {
         EspressoIdlingResource.increment()
+        val tvShows = MutableLiveData<ApiResponse<MoviesResponse>>()
         handler.postDelayed({
-            callback.onMovieDetailReceived(jsonHelper.loadMovieById(id))
+            tvShows.value = ApiResponse.success(jsonHelper.loadTvShows())
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
+        return tvShows
     }
 
-    fun getTvShows(callback: LoadTvShows) {
-        EspressoIdlingResource.increment()
-        handler.postDelayed({
-            callback.onTvShowsReceived(jsonHelper.loadTvShows())
-            EspressoIdlingResource.decrement()
-        }, SERVICE_LATENCY_IN_MILLIS)
-    }
-
-    fun getTvShow(id: Int, callback: LoadTvShowDetail) {
-        EspressoIdlingResource.increment()
-        handler.postDelayed({
-            callback.onTvShowDetailReceived(jsonHelper.loadTvShowById(id))
-            EspressoIdlingResource.decrement()
-        }, SERVICE_LATENCY_IN_MILLIS)
-    }
-
-    interface LoadMovies {
-        fun onMoviesReceived(moviesResponse: MoviesResponse)
-    }
-
-    interface LoadMovieDetail {
-        fun onMovieDetailReceived(movie: Movie?)
-    }
-
-    interface LoadTvShows {
-        fun onTvShowsReceived(tvShowsResponse: MoviesResponse)
-    }
-
-    interface LoadTvShowDetail {
-        fun onTvShowDetailReceived(tvShow: Movie?)
-    }
 }

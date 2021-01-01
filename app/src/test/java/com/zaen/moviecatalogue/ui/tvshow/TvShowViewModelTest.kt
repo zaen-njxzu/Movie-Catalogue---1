@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.nhaarman.mockitokotlin2.verify
-import com.zaen.moviecatalogue.models.MoviesResponse
+import com.zaen.moviecatalogue.source.remote.response.MoviesResponse
 import com.zaen.moviecatalogue.source.MovieCatalogueRepository
 import com.zaen.moviecatalogue.utils.DataDummyTvShow
 import org.junit.Assert.assertEquals

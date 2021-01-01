@@ -2,8 +2,8 @@ package com.zaen.moviecatalogue.utils
 
 import android.content.Context
 import com.google.gson.Gson
-import com.zaen.moviecatalogue.models.Movie
-import com.zaen.moviecatalogue.models.MoviesResponse
+import com.zaen.moviecatalogue.source.remote.response.Movie
+import com.zaen.moviecatalogue.source.remote.response.MoviesResponse
 import org.json.JSONException
 import java.io.IOException
 
@@ -34,10 +34,6 @@ class JsonHelper(private val context: Context) {
         return list
     }
 
-    fun loadMovieById(id: Int) : Movie? {
-        return loadMovies().find { movie -> movie.id == id }
-    }
-
     fun loadTvShows(): MoviesResponse {
         var list = MoviesResponse()
         try {
@@ -49,7 +45,4 @@ class JsonHelper(private val context: Context) {
         return list
     }
 
-    fun loadTvShowById(id: Int) : Movie? {
-        return loadTvShows().find { tvShow -> tvShow.id == id }
-    }
 }

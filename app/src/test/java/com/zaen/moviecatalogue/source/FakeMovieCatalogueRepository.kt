@@ -2,8 +2,8 @@ package com.zaen.moviecatalogue.source
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.zaen.moviecatalogue.models.Movie
-import com.zaen.moviecatalogue.models.MoviesResponse
+import com.zaen.moviecatalogue.source.remote.response.Movie
+import com.zaen.moviecatalogue.source.remote.response.MoviesResponse
 import com.zaen.moviecatalogue.source.remote.RemoteDataSource
 
 class FakeMovieCatalogueRepository (private val remoteDataSource: RemoteDataSource) : MovieCatalogeDataSource {
