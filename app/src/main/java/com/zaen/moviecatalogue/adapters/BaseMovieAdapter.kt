@@ -1,7 +1,6 @@
 package com.zaen.moviecatalogue.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -9,13 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zaen.moviecatalogue.R
+import com.zaen.moviecatalogue.databinding.ItemsMovieBinding
 import com.zaen.moviecatalogue.models.Movie
 import com.zaen.moviecatalogue.utils.Constants.BASE_IMAGE_URL
-import kotlinx.android.synthetic.main.items_movie.view.*
 
 abstract class BaseMovieAdapter : RecyclerView.Adapter<BaseMovieAdapter.MovieViewHolder>() {
-
-    inner class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     private val differCallback = object : DiffUtil.ItemCallback<Movie>() {
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
@@ -30,14 +27,8 @@ abstract class BaseMovieAdapter : RecyclerView.Adapter<BaseMovieAdapter.MovieVie
     val differ = AsyncListDiffer(this, differCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-
-        return MovieViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.items_movie,
-                parent,
-                false
-            )
-        )
+        val itemsBaseMovieBinding = ItemsMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(itemsBaseMovieBinding)
     }
 
     override fun getItemCount(): Int {
@@ -46,17 +37,22 @@ abstract class BaseMovieAdapter : RecyclerView.Adapter<BaseMovieAdapter.MovieVie
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = differ.currentList[position]
-        holder.itemView.apply {
-            Glide.with(context)
-                .load(BASE_IMAGE_URL+movie.posterUrl)
-                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading)
-                    .error(R.drawable.ic_error))
-                .into(iv_poster)
-            tv_item_title.text = movie.title
+        holder.bind(movie)
+    }
 
-            setOnClickListener {
-                onItemClickListener?.let {
-                    it(movie.id)
+    open inner class MovieViewHolder(private val binding: ItemsMovieBinding): RecyclerView.ViewHolder(binding.root) {
+        open fun bind(movie: Movie) {
+            binding.apply {
+                Glide.with(itemView.context)
+                    .load(BASE_IMAGE_URL+movie.posterUrl)
+                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading)
+                        .error(R.drawable.ic_error))
+                    .into(ivPoster)
+                tvItemTitle.text = movie.title
+                itemView.setOnClickListener {
+                    onItemClickListener?.let {
+                        it(movie.id)
+                    }
                 }
             }
         }

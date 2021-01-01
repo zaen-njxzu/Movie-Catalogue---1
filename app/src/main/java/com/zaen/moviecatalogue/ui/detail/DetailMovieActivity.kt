@@ -14,8 +14,6 @@ import com.zaen.moviecatalogue.models.Movie
 import com.zaen.moviecatalogue.utils.Constants.BASE_IMAGE_URL
 import com.zaen.moviecatalogue.utils.TypeMovie
 import com.zaen.moviecatalogue.viewmodel.ViewModelFactory
-import kotlinx.android.synthetic.main.activity_detail_movie.*
-import kotlinx.android.synthetic.main.content_detail_movie.*
 
 class DetailMovieActivity : AppCompatActivity() {
 
@@ -33,7 +31,7 @@ class DetailMovieActivity : AppCompatActivity() {
         contentDetailMovieBinding = activityDetailMovieBinding.detailContent
         setContentView(activityDetailMovieBinding.root)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(activityDetailMovieBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val factory = ViewModelFactory.getInstance(this)

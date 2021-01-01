@@ -1,20 +1,28 @@
 package com.zaen.moviecatalogue.ui.tvshow
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import com.zaen.moviecatalogue.adapters.BaseMovieAdapter
+import com.zaen.moviecatalogue.databinding.ItemsMovieBinding
 import com.zaen.moviecatalogue.models.Movie
-import kotlinx.android.synthetic.main.items_movie.view.*
 
 class TvShowAdapter : BaseMovieAdapter() {
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        super.onBindViewHolder(holder, position)
-        val movie = differ.currentList[position]
-        holder.itemView.apply {
-            cv_ib_share.visibility = View.VISIBLE
-            ib_share.setOnClickListener {
-                onClickShareListener?.let {
-                    it(movie)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        val itemsBaseMovieBinding = ItemsMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(itemsBaseMovieBinding)
+    }
+
+    inner class MovieViewHolder(private val binding: ItemsMovieBinding): BaseMovieAdapter.MovieViewHolder(binding) {
+        override fun bind(movie: Movie) {
+            super.bind(movie)
+            binding.apply {
+                cvIbShare.visibility = View.VISIBLE
+                ibShare.setOnClickListener {
+                    onClickShareListener?.let {
+                        it(movie)
+                    }
                 }
             }
         }

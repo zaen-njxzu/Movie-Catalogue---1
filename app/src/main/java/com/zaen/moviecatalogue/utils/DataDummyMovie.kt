@@ -103,7 +103,7 @@ object DataDummyMovie {
 
     fun getMovieDetail(id: Int) : Movie? {
         val movies = getMovies()
-        return movies.find { movie -> movie?.id == id }
+        return movies.find { movie -> movie.id == id }
     }
 
 }
