@@ -41,7 +41,20 @@ class HomeActivityTest {
     }
 
     @Test
-    fun saveAndLoadMovie() {
+    fun loadMovieDetail() {
+        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_title)).check(matches(withText(dummyMovies[0].title)))
+        onView(withId(R.id.tv_release_at)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_release_at)).check(matches(withText(dummyMovies[0].releaseDate)))
+        onView(withId(R.id.tv_rating)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_rating)).check(matches(withText(dummyMovies[0].rating.toString())))
+        onView(withId(R.id.tv_synopsis)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_synopsis)).check(matches(withText(dummyMovies[0].overview)))
+    }
+
+    @Test
+    fun saveAndLoadMovieFavorite() {
         onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_title)).check(matches(withText(dummyMovies[0].title)))
@@ -54,7 +67,7 @@ class HomeActivityTest {
         onView(withId(R.id.action_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.action_favorite)).perform(click())
 
-        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack())
 
         onView(withId(R.id.action_list_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.action_list_favorite)).perform(click())
@@ -80,7 +93,21 @@ class HomeActivityTest {
     }
 
     @Test
-    fun saveAndLoadTvShow() {
+    fun loadTvShowDetail() {
+        onView(withText(R.string.tvshow)).perform(click())
+        onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_title)).check(matches(withText(dummyTvShows[0].title)))
+        onView(withId(R.id.tv_release_at)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_release_at)).check(matches(withText(dummyTvShows[0].releaseDate)))
+        onView(withId(R.id.tv_rating)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_rating)).check(matches(withText(dummyTvShows[0].rating.toString())))
+        onView(withId(R.id.tv_synopsis)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_synopsis)).check(matches(withText(dummyTvShows[0].overview)))
+    }
+
+    @Test
+    fun saveAndLoadTvShowFavorite() {
         onView(withText(R.string.tvshow)).perform(click())
         onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
@@ -94,7 +121,7 @@ class HomeActivityTest {
         onView(withId(R.id.action_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.action_favorite)).perform(click())
 
-        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack())
 
         onView(withId(R.id.action_list_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.action_list_favorite)).perform(click())
