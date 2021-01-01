@@ -6,6 +6,8 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.zaen.moviecatalogue.R
 import com.zaen.moviecatalogue.databinding.ActivityDetailMovieBinding
 import com.zaen.moviecatalogue.databinding.ContentDetailMovieBinding
 import com.zaen.moviecatalogue.models.Movie
@@ -69,6 +71,8 @@ class DetailMovieActivity : AppCompatActivity() {
             contentDetailMovieBinding.apply {
                 Glide.with(this@DetailMovieActivity)
                     .load(BASE_IMAGE_URL + posterUrl)
+                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading)
+                                .error(R.drawable.ic_error))
                     .into(ivPoster)
                 tvTitle.text = title
                 tvReleaseAt.text = releaseDate

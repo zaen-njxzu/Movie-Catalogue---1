@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.zaen.moviecatalogue.R
 import com.zaen.moviecatalogue.models.Movie
 import com.zaen.moviecatalogue.utils.Constants.BASE_IMAGE_URL
@@ -48,6 +49,8 @@ abstract class BaseMovieAdapter : RecyclerView.Adapter<BaseMovieAdapter.MovieVie
         holder.itemView.apply {
             Glide.with(context)
                 .load(BASE_IMAGE_URL+movie.posterUrl)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading)
+                    .error(R.drawable.ic_error))
                 .into(iv_poster)
             tv_item_title.text = movie.title
 
